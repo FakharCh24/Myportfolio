@@ -144,8 +144,8 @@ export const ProjectsSection = () => {
                   <ProjectImageCarousel images={project.images} title={project.title} />
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag) => (
-                        <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                      {project.tags.map((tag, idx) => (
+                        <span key={tag + idx} className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
                           {tag}
                         </span>
                       ))}

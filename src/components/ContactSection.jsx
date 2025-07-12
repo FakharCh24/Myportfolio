@@ -10,10 +10,34 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
 
 export const ContactSection = () => {
+  const form = useRef();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    emailjs.sendForm(
+      'service_976zprw', // Service ID
+      'template_1hm8p98', // Template ID
+      form.current,
+      'UOZwL4o1FtC2QDI1J' // Public Key
+    )
+    .then(
+      (result) => {
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+      },
+      (error) => {
+        alert('Failed to send message. Please try again.');
+        setIsSubmitting(false);
+      }
+    );
+  };
 
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -102,12 +126,7 @@ export const ContactSection = () => {
                 Message sent! Thank you for your message. I'll get back to you soon.
               </div>
             ) : (
-              <form
-                className="space-y-6"
-                action="https://formspree.io/f/xvgreqeb"
-                method="POST"
-                onSubmit={() => setIsSubmitted(true)}
-              >
+              <form ref={form} onSubmit={sendEmail} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Your Name
@@ -115,7 +134,7 @@ export const ContactSection = () => {
                   <input
                     type="text"
                     id="name"
-                    name="name"
+                    name="user_name"
                     required
                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                     placeholder="Fakhir Ashraf..."
@@ -128,7 +147,7 @@ export const ContactSection = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="user_email"
                     required
                     className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                     placeholder="Fakhir@gmail.com"
@@ -149,8 +168,9 @@ export const ContactSection = () => {
                 <button
                   type="submit"
                   className={"cosmic-button w-full flex items-center justify-center gap-2"}
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send size={16} />
                 </button>
               </form>

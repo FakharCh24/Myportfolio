@@ -4,31 +4,24 @@ import cssLogo from "@/assets/css.png";
 import jsLogo from "@/assets/js-W-NDNy9U.png";
 import reactLogo from "@/assets/react-CBjhoM09.png";
 import tailwindLogo from "@/assets/tailwind-B1tnhwjB.png";
-import nextjsLogo from "@/assets/icons8-next.js-48.png";
+import nextjsLogo from "@/assets/nextjs.png";
 import githubLogo from "@/assets/github-BqRYniog.png";
 import BootstrapLogo from "@/assets/bootstrap-DjByhJwM.png";
 import vscodeLogo from "@/assets/vscode-DyPKvY-r.png";
+import htmlLogo from "@/assets/html.png";
 
 const skills = [
   // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend", logo: cssLogo },
+  { name: "HTML",level: 95, category: "frontend", logo: htmlLogo},
+  { name: "CSS",level: 95, category: "frontend", logo: cssLogo },
   { name: "JavaScript", level: 90, category: "frontend", logo: jsLogo },
   { name: "React", level: 90, category: "frontend", logo: reactLogo },
-  // { name: "TypeScript", level: 85, category: "frontend" },
   { name: "Tailwind CSS", level: 90, category: "frontend", logo: tailwindLogo },
   { name: "Next.js", level: 80, category: "frontend", logo: nextjsLogo },
-
-  // // Backend
-  // { name: "Node.js", level: 80, category: "backend" },
-  // { name: "Express", level: 75, category: "backend" },
-  // { name: "MongoDB", level: 70, category: "backend" },
-  // { name: "PostgreSQL", level: 65, category: "backend" },
-  // { name: "GraphQL", level: 60, category: "backend" },
 
   // Tools
   { name: "Git/GitHub", level: 90, category: "tools", logo: githubLogo },
   { name: "Bootstrap", level: 70, category: "tools", logo: BootstrapLogo },
-  // { name: "Figma", level: 85, category: "tools" },
   { name: "VS Code", level: 95, category: "tools", logo: vscodeLogo },
 ];
 
@@ -76,18 +69,7 @@ export const SkillsSection = () => {
                 )}
                 <h3 className="font-semibold text-lg"> {skill.name}</h3>
               </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
-              </div>
+              {/* Skill level bar and percentage removed */}
             </div>
           ))}
         </div>

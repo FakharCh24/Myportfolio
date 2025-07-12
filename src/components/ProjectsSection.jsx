@@ -1,6 +1,9 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useRef } from 'react';
 
 const projects = [
   {
@@ -47,9 +50,41 @@ const projects = [
     demoUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: 4,
+    title: "To-do List",
+    description:
+      "A simple and responsive to-do list application built using HTML, CSS, and JavaScript. Users can add, delete, and mark tasks as completed in real-time. The interface is clean and intuitive, providing a smooth user experience. All data is stored in the browser using localStorage so tasks stay saved even after refreshing.",
+    images: [
+      "/src/assets/td1.png",
+      "/src/assets/td2.png",
+      "/src/assets/td3.png",
+      // Add more image paths here for this project
+    ],
+    tags: ["Html", "CSS", "JavaScript"],
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: 5,
+    title: "Currency Converter",
+    description:
+      "A real-time currency converter web app built with HTML, CSS, and JavaScript. It allows users to convert between multiple currencies using live exchange rates fetched from a public API. The app features a clean user interface, responsive design, and accurate conversion logic.",
+    images: [
+      "/src/assets/c1.png",
+      "/src/assets/c2.png",
+      "/src/assets/c3.png",
+      // Add more image paths here for this project
+    ],
+    tags: ["Html", "CSS", "JavaScript"],
+    demoUrl: "#",
+    githubUrl: "#",
+  },
 ];
 
 export const ProjectsSection = () => {
+  const mainPrevRef = useRef(null);
+  const mainNextRef = useRef(null);
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -63,66 +98,85 @@ export const ProjectsSection = () => {
           crafted with attention to detail, performance, and user experience.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              <div className="h-48 overflow-hidden">
-                <Carousel
-                  showThumbs={false}
-                  showStatus={false}
-                  infiniteLoop
-                  autoPlay={false}
-                  className="project-carousel"
-                >
-                  {project.images.map((img, idx) => (
-                    <div key={idx} className="h-48 bg-black">
-                      <img
-                        src={img}
-                        alt={project.title + ' image ' + (idx + 1)}
-                        className="w-full h-full object-cover"
-                      />
+        <div className="relative">
+          <button
+            ref={mainPrevRef}
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 bg-white/40 text-black/50 hover:bg-white/80 hover:text-primary transition rounded-full p-1 shadow"
+            style={{ width: 28, height: 28 }}
+            aria-label="Previous projects"
+            type="button"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            ref={mainNextRef}
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 bg-white/40 text-black/50 hover:bg-white/80 hover:text-primary transition rounded-full p-1 shadow"
+            style={{ width: 28, height: 28 }}
+            aria-label="Next projects"
+            type="button"
+          >
+            <ChevronRight size={18} />
+          </button>
+          <Swiper
+            modules={[Navigation]}
+            navigation={{
+              prevEl: mainPrevRef.current,
+              nextEl: mainNextRef.current,
+            }}
+            onInit={(swiper) => {
+              swiper.params.navigation.prevEl = mainPrevRef.current;
+              swiper.params.navigation.nextEl = mainNextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }}
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="project-swiper mb-8"
+          >
+            {projects.map((project, key) => (
+              <SwiperSlide key={key}>
+                <div className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover h-full flex flex-col">
+                  <ProjectImageCarousel images={project.images} title={project.title} />
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  ))}
-                </Carousel>
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                    <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4 flex-1">
+                      {project.description}
+                    </p>
+                    <div className="flex justify-between items-center mt-auto">
+                      <div className="flex space-x-3">
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        >
+                          <Github size={20} />
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <div className="text-center mt-12">
@@ -138,3 +192,55 @@ export const ProjectsSection = () => {
     </section>
   );
 };
+
+function ProjectImageCarousel({ images, title }) {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
+  return (
+    <div className="relative h-48 overflow-hidden">
+      <button
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow hover:bg-primary hover:text-white transition"
+        ref={prevRef}
+        aria-label="Previous image"
+        type="button"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow hover:bg-primary hover:text-white transition"
+        ref={nextRef}
+        aria-label="Next image"
+        type="button"
+      >
+        <ChevronRight size={20} />
+      </button>
+      <Swiper
+        modules={[Navigation]}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        onInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
+        spaceBetween={8}
+        slidesPerView={1}
+        className="project-image-swiper h-full"
+      >
+        {images.map((img, idx) => (
+          <SwiperSlide key={idx}>
+            <img
+              src={img}
+              alt={title + ' image ' + (idx + 1)}
+              className="w-full h-full object-cover"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}

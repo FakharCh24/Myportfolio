@@ -50,8 +50,24 @@ const projects = [
     demoUrl: "#",
     githubUrl: "#",
   },
+   { id: 4,
+    title: "Finance Platform",
+    description:
+      "Farmgate Finance is a web-based platform designed to empower dairy farmers with instant access to the money they’ve already earned. The system simplifies the cash flow process by eliminating payment delays, offering real-time transaction visibility and secure fund transfers. Built with a clean, responsive front-end and seamless backend integrations, it ensures farmers can focus on what they do best — farming — without financial uncertainty.",
+    images: [
+      "/src/assets/f1.png",
+      "/src/assets/f2.png",
+      "/src/assets/f3.png",
+      "/src/assets/f4.png",
+      "/src/assets/f5.png",
+      // Add more image paths here for this project
+    ],
+    tags: ["Next.js", "Tailwind CSS"],
+    demoUrl: "#",
+    githubUrl: "#",
+  },
   {
-    id: 4,
+    id: 5,
     title: "To-do List",
     description:
       "A simple and responsive to-do list application built using HTML, CSS, and JavaScript. Users can add, delete, and mark tasks as completed in real-time. The interface is clean and intuitive, providing a smooth user experience. All data is stored in the browser using localStorage so tasks stay saved even after refreshing.",
@@ -66,7 +82,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 5,
+    id: 6,
     title: "Currency Converter",
     description:
       "A real-time currency converter web app built with HTML, CSS, and JavaScript. It allows users to convert between multiple currencies using live exchange rates fetched from a public API. The app features a clean user interface, responsive design, and accurate conversion logic.",

@@ -36,7 +36,7 @@ const projects = [
     ],
     tags: ["Next.js", "Tailwind CSS"],
     demoUrl: "https://farmgate-finance.vercel.app/",
-    githubUrl: "https://github.com/FakharCh24/Farmgate_Finance",
+    githubUrl: "#",
   },
   {
     id: 3,

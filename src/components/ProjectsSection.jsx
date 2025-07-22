@@ -12,10 +12,10 @@ const projects = [
     description:
       "A responsive, multi-page Fiverr-inspired freelance marketplace built using React.js, with dynamic components, routing, and API integration. It features service listings, user profiles, category filtering, and a modern UI — designed to replicate real-world eCommerce interactions. This project showcases my skills in React architecture, component design, and frontend state management.",
     images: [
-      "/src/assets/3.png",
-      "/src/assets/Fiv2.png",
-      "/src/assets/Fiv3.png",
-      "/src/assets/Fiv4.png",
+      "/3.png",
+      "/Fiv2.png",
+      "/Fiv3.png",
+      "/Fiv4.png",
       // Add more image paths here for this project
     ],
     tags: ["React", "Django", "Tailwind CSS"],
@@ -27,11 +27,11 @@ const projects = [
     description:
       "Farmgate Finance is a web-based platform designed to empower dairy farmers with instant access to the money they’ve already earned. The system simplifies the cash flow process by eliminating payment delays, offering real-time transaction visibility and secure fund transfers. Built with a clean, responsive front-end and seamless backend integrations, it ensures farmers can focus on what they do best — farming — without financial uncertainty.",
     images: [
-      "/src/assets/f1.png",
-      "/src/assets/f2.png",
-      "/src/assets/f3.png",
-      "/src/assets/f4.png",
-      "/src/assets/f5.png",
+      "/f1.png",
+      "/f2.png",
+      "/f3.png",
+      "/f4.png",
+      "/f5.png",
       // Add more image paths here for this project
     ],
     tags: ["Next.js", "Tailwind CSS"],
@@ -44,9 +44,9 @@ const projects = [
     description:
       "A fun, interactive Tic Tac Toe game built with HTML, CSS, and JavaScript. It features a clean UI, turn-based logic for two players, win/draw detection, and a restart button. Great for practicing JavaScript conditionals, DOM updates, and game logic.",
     images: [
-      "/src/assets/Tic1.png",
-      "/src/assets/Tic2.png",
-      "/src/assets/Tic3.png",
+      "/Tic1.png",
+      "/Tic2.png",
+      "/Tic3.png",
       // Add more image paths here for this project
     ],
     tags: ["HTML", "CSS", "JavaScript"],
@@ -59,9 +59,9 @@ const projects = [
     description:
       "A real-time currency converter web app built with HTML, CSS, and JavaScript. It allows users to convert between multiple currencies using live exchange rates fetched from a public API. The app features a clean user interface, responsive design, and accurate conversion logic.",
     images: [
-      "/src/assets/c1.png",
-      "/src/assets/c2.png",
-      "/src/assets/c3.png",
+      "/c1.png",
+      "/c2.png",
+      "/c3.png",
       // Add more image paths here for this project
     ],
     tags: ["Html", "CSS", "JavaScript"],
@@ -73,9 +73,9 @@ const projects = [
     title: "Calculator App",
     description: "A basic calculator built using HTML, CSS, and JavaScript. It performs standard operations like add, subtract, multiply, and divide with a clean, responsive interface. Designed to practice DOM manipulation, event handling, and core JavaScript logic.",
     images: [
-      "/src/assets/1.png",
-       "/src/assets/cal1.png",
-       "/src/assets/cal2.png",
+      "/1.png",
+       "/cal1.png",
+       "/cal2.png",
     ],
     tags: ["HTML", "CSS", "JavaScript"],
     demoUrl: "https://mycalculator-sandy.vercel.app/",
@@ -90,9 +90,9 @@ const projects = [
     description:
       "A simple and responsive to-do list application built using HTML, CSS, and JavaScript. Users can add, delete, and mark tasks as completed in real-time. The interface is clean and intuitive, providing a smooth user experience. All data is stored in the browser using localStorage so tasks stay saved even after refreshing.",
     images: [
-      "/src/assets/td1.png",
-      "/src/assets/td2.png",
-      "/src/assets/td3.png",
+      "/td1.png",
+      "/td2.png",
+      "/td3.png",
       // Add more image paths here for this project
     ],
     tags: ["Html", "CSS", "JavaScript"],

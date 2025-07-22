@@ -1,28 +1,19 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import cssLogo from "@/assets/css.png";
-import jsLogo from "@/assets/js-W-NDNy9U.png";
-import reactLogo from "@/assets/react-CBjhoM09.png";
-import tailwindLogo from "@/assets/tailwind-B1tnhwjB.png";
-import nextjsLogo from "@/assets/nextjs.png";
-import githubLogo from "@/assets/github-BqRYniog.png";
-import BootstrapLogo from "@/assets/bootstrap-DjByhJwM.png";
-import vscodeLogo from "@/assets/vscode-DyPKvY-r.png";
-import htmlLogo from "@/assets/html.png";
 
 const skills = [
   // Frontend
-  { name: "HTML",level: 95, category: "frontend", logo: htmlLogo},
-  { name: "CSS",level: 95, category: "frontend", logo: cssLogo },
-  { name: "JavaScript", level: 90, category: "frontend", logo: jsLogo },
-  { name: "React", level: 90, category: "frontend", logo: reactLogo },
-  { name: "Tailwind CSS", level: 90, category: "frontend", logo: tailwindLogo },
-  { name: "Next.js", level: 80, category: "frontend", logo: nextjsLogo },
+  { name: "HTML",level: 95, category: "frontend", logo: "/html.png"},
+  { name: "CSS",level: 95, category: "frontend", logo: "/css.png" },
+  { name: "JavaScript", level: 90, category: "frontend", logo: "/js-W-NDNy9U.png" },
+  { name: "React", level: 90, category: "frontend", logo: "/react-CBjhoM09.png" },
+  { name: "Tailwind CSS", level: 90, category: "frontend", logo: "/tailwind-B1tnhwjB.png" },
+  { name: "Next.js", level: 80, category: "frontend", logo: "/nextjs.png" },
 
   // Tools
-  { name: "Git/GitHub", level: 90, category: "tools", logo: githubLogo },
-  { name: "Bootstrap", level: 70, category: "tools", logo: BootstrapLogo },
-  { name: "VS Code", level: 95, category: "tools", logo: vscodeLogo },
+  { name: "Git/GitHub", level: 90, category: "tools", logo: "/github-BqRYniog.png" },
+  { name: "Bootstrap", level: 70, category: "tools", logo: "/bootstrap-DjByhJwM.png" },
+  { name: "VS Code", level: 95, category: "tools", logo: "/vscode-DyPKvY-r.png" },
 ];
 
 const categories = ["all", "frontend", "tools"];

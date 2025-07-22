@@ -54,7 +54,7 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* Theme Toggle Button */}
+        {/* Theme Toggle Button - always visible */}
         <div className="ml-4 flex-shrink-0">
           <ThemeToggle />
         </div>
@@ -89,6 +89,10 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+          </div>
+          {/* Theme Toggle Button in mobile nav */}
+          <div className="mt-8">
+            <ThemeToggle />
           </div>
         </div>
       </div>
